@@ -196,6 +196,8 @@ class BufferPoolManager {
   /** This buffer is for the leaderboard task. You may want to use it to optimize the write requests. */
   WriteBackCache write_back_cache_ __attribute__((__unused__));
 
+  std::list<page_id_t> free_pages_;
+
   /**
    * @brief Allocate a page on disk. Caller should acquire the latch before calling this function.
    * @return the id of the allocated page
@@ -206,9 +208,7 @@ class BufferPoolManager {
    * @brief Deallocate a page on disk. Caller should acquire the latch before calling this function.
    * @param page_id id of the page to deallocate
    */
-  void DeallocatePage(__attribute__((unused)) page_id_t page_id) {
-    // This is a no-nop right now without a more complex data structure to track deallocated pages
-  }
+  void DeallocatePage(__attribute__((unused)) page_id_t page_id);
 
   // TODO(student): You may add additional private members and helper functions
 };

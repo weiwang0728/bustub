@@ -28,7 +28,6 @@ class BasicPageGuard {
    * guards and have the pin count decrease by 2.
    */
   BasicPageGuard(BasicPageGuard &&that) noexcept;
-
   /** TODO(P1): Add implementation
    *
    * @brief Drop a page guard
